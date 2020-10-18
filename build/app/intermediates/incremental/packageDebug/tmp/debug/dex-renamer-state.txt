@@ -1,0 +1,4 @@
+#Mon Oct 19 01:12:13 PKT 2020
+base.0=C\:\\Users\\tbzam\\Desktop\\Weather_Forecast\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
