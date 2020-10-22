@@ -1,7 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:weather_app/api.dart';
+import 'package:weather_app/button.dart';
 import 'package:weather_app/forecast.dart';
+import 'package:weather_app/search.dart';
 import 'package:weather_app/weather_model.dart';
 
 class Currentweather extends StatefulWidget {
@@ -45,7 +47,7 @@ class _CurrentweatherState extends State<Currentweather> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "${snapshot.data.temp} *C",
+                    "${snapshot.data.temp} °C",
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 50,
@@ -58,14 +60,31 @@ class _CurrentweatherState extends State<Currentweather> {
                         fontSize: 30,
                         fontWeight: FontWeight.bold),
                   ),
-                  Text(
-                    snapshot.data.main,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        snapshot.data.main,
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Image.network(
+                          'http://openweathermap.org/img/w/${snapshot.data.icon}.png')
+                    ],
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.4),
+                  RaisedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Buttonn()));
+                    },
+                    child: Text("Search By City"),
+                  ),
+                  SizedBox(height: 20),
                   Forect(),
                 ],
               );
@@ -73,8 +92,7 @@ class _CurrentweatherState extends State<Currentweather> {
               return Text("${snapshot.error}");
             }
 
-            // By default, show a loading spinner.
-            return CircularProgressIndicator();
+            return Text(" ");
           },
         ),
       ),

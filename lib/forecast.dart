@@ -33,16 +33,36 @@ class _ForectState extends State<Forect> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
-                    cardd("${snapshot.data.temp1}", "${snapshot.data.name1}",
-                        "${snapshot.data.main1}", "${snapshot.data.date1}"),
-                    cardd("${snapshot.data.temp2}", "${snapshot.data.name2}",
-                        "${snapshot.data.main2}", "${snapshot.data.date2}"),
-                    cardd("${snapshot.data.temp3}", "${snapshot.data.name3}",
-                        "${snapshot.data.main3}", "${snapshot.data.date3}"),
-                    cardd("${snapshot.data.temp4}", "${snapshot.data.name4}",
-                        "${snapshot.data.main4}", "${snapshot.data.date4}"),
-                    cardd("${snapshot.data.temp5}", "${snapshot.data.name5}",
-                        "${snapshot.data.main5}", "${snapshot.data.date5}"),
+                    cardd(
+                        "${snapshot.data.temp1}",
+                        "${snapshot.data.name1}",
+                        "${snapshot.data.main1}",
+                        "${snapshot.data.icon1}",
+                        "${snapshot.data.date1}"),
+                    cardd(
+                        "${snapshot.data.temp2}",
+                        "${snapshot.data.name2}",
+                        "${snapshot.data.main2}",
+                        "${snapshot.data.icon2}",
+                        "${snapshot.data.date2}"),
+                    cardd(
+                        "${snapshot.data.temp3}",
+                        "${snapshot.data.name3}",
+                        "${snapshot.data.main3}",
+                        "${snapshot.data.icon3}",
+                        "${snapshot.data.date3}"),
+                    cardd(
+                        "${snapshot.data.temp4}",
+                        "${snapshot.data.name4}",
+                        "${snapshot.data.main4}",
+                        "${snapshot.data.icon4}",
+                        "${snapshot.data.date4}"),
+                    cardd(
+                        "${snapshot.data.temp5}",
+                        "${snapshot.data.name5}",
+                        "${snapshot.data.main5}",
+                        "${snapshot.data.icon5}",
+                        "${snapshot.data.date5}"),
                   ],
                 ),
               ),
@@ -59,7 +79,7 @@ class _ForectState extends State<Forect> {
   }
 }
 
-Widget cardd(tem, c, m, d) {
+Widget cardd(tem, c, m, i, d) {
   return Container(
     height: 130,
     width: 120,
@@ -73,7 +93,10 @@ Widget cardd(tem, c, m, d) {
           children: [
             Text(tem, style: TextStyle(color: Colors.white)),
             Text(c, style: TextStyle(color: Colors.white)),
-            Text(m, style: TextStyle(color: Colors.white)),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(m, style: TextStyle(color: Colors.white)),
+              Image.network('http://openweathermap.org/img/w/${i}.png')
+            ]),
             Text(d, style: TextStyle(color: Colors.white)),
           ],
         )),
