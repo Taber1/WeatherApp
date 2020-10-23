@@ -8,6 +8,12 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "autocomplete_textfield",
+      "rootUri": "file:///C:/Users/Taber/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/autocomplete_textfield-1.7.3",
+      "packageUri": "lib/",
+      "languageVersion": "1.19"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///C:/Users/Taber/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/boolean_selector-2.1.0-nullsafety.1",
       "packageUri": "lib/",
@@ -38,6 +44,18 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "convert",
+      "rootUri": "file:///C:/Users/Taber/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/convert-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "1.17"
+    },
+    {
+      "name": "crypto",
+      "rootUri": "file:///C:/Users/Taber/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/crypto-2.1.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.3"
+    },
+    {
       "name": "cupertino_icons",
       "rootUri": "file:///C:/Users/Taber/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/cupertino_icons-0.1.3",
       "packageUri": "lib/",
@@ -56,10 +74,28 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "flutter_plugin_android_lifecycle",
+      "rootUri": "file:///C:/Users/Taber/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-1.0.11",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///C:/src/flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "2.2"
+    },
+    {
+      "name": "google_maps_flutter",
+      "rootUri": "file:///C:/Users/Taber/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/google_maps_flutter-1.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "google_maps_flutter_platform_interface",
+      "rootUri": "file:///C:/Users/Taber/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/google_maps_flutter_platform_interface-1.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.3"
     },
     {
       "name": "http",
@@ -104,6 +140,12 @@
       "languageVersion": "2.1"
     },
     {
+      "name": "plugin_platform_interface",
+      "rootUri": "file:///C:/Users/Taber/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/plugin_platform_interface-1.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///C:/src/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -126,6 +168,12 @@
       "rootUri": "file:///C:/Users/Taber/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/stream_channel-2.1.0-nullsafety.1",
       "packageUri": "lib/",
       "languageVersion": "2.10"
+    },
+    {
+      "name": "stream_transform",
+      "rootUri": "file:///C:/Users/Taber/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/stream_transform-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
     },
     {
       "name": "string_scanner",
@@ -152,6 +200,12 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "uuid",
+      "rootUri": "file:///C:/Users/Taber/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/uuid-2.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///C:/Users/Taber/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/vector_math-2.1.0-nullsafety.3",
       "packageUri": "lib/",
@@ -164,7 +218,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-10-21T07:42:29.727236Z",
+  "generated": "2020-10-23T13:25:27.126022Z",
   "generator": "pub",
   "generatorVersion": "2.10.2"
 }

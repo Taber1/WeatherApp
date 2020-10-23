@@ -26,3 +26,25 @@ Future<Forecast> forc_data(city) async {
     throw Exception('Failed to load Forecast');
   }
 }
+
+Future<Weather> searchweather(city) async {
+  final searchresponse = await http.get(
+      'http://api.openweathermap.org/data/2.5/weather?q=$city&appid=10530cd042fdda8d65051ca864fc86bf');
+
+  if (searchresponse.statusCode == 200) {
+    return Weather.fromJson(jsonDecode(searchresponse.body));
+  } else {
+    throw Exception('Failed to load Weather');
+  }
+}
+
+Future<Forecast> forc_search(city) async {
+  final fResponse = await http.get(
+      'http://api.openweathermap.org/data/2.5/forecast?q=$city&appid=10530cd042fdda8d65051ca864fc86bf');
+
+  if (fResponse.statusCode == 200) {
+    return Forecast.fromJson(jsonDecode(fResponse.body));
+  } else {
+    throw Exception('Failed to load Forecast');
+  }
+}
