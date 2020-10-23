@@ -21,8 +21,7 @@ class _CurrentweatherState extends State<Currentweather> {
   @override
   void initState() {
     super.initState();
-    weatherData =
-        (val == widget.value ? load_data("Karachi") : searchweather(abc));
+    weatherData = (val == widget.value ? load_data("Karachi") : load_data(abc));
   }
 
   @override

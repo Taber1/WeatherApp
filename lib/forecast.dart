@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_app/api.dart';
 import 'package:weather_app/forecastmodel.dart';
 import 'button.dart';
@@ -19,7 +20,7 @@ class _ForectState extends State<Forect> {
   void initState() {
     super.initState();
     forecastData =
-        (val == widget.value ? forc_data("Karachi") : forc_search(abc));
+        (val == widget.value ? forc_data("Karachi") : forc_data(abc));
   }
 
   @override
@@ -37,35 +38,40 @@ class _ForectState extends State<Forect> {
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
                     cardd(
-                        "${snapshot.data.temp1}",
-                        "${snapshot.data.name1}",
-                        "${snapshot.data.main1}",
-                        "${snapshot.data.icon1}",
-                        "${snapshot.data.date1}"),
+                      "${snapshot.data.temp1}°C",
+                      "${snapshot.data.name1}",
+                      "${DateFormat("h:mma").format(snapshot.data.date1)}",
+                      "${snapshot.data.main1}",
+                      "${snapshot.data.icon1}",
+                    ),
                     cardd(
-                        "${snapshot.data.temp2}",
-                        "${snapshot.data.name2}",
-                        "${snapshot.data.main2}",
-                        "${snapshot.data.icon2}",
-                        "${snapshot.data.date2}"),
+                      "${snapshot.data.temp2}°C",
+                      "${snapshot.data.name2}",
+                      "${DateFormat("h:mma").format(snapshot.data.date2)}",
+                      "${snapshot.data.main2}",
+                      "${snapshot.data.icon2}",
+                    ),
                     cardd(
-                        "${snapshot.data.temp3}",
-                        "${snapshot.data.name3}",
-                        "${snapshot.data.main3}",
-                        "${snapshot.data.icon3}",
-                        "${snapshot.data.date3}"),
+                      "${snapshot.data.temp3}°C",
+                      "${snapshot.data.name3}",
+                      "${DateFormat("h:mma").format(snapshot.data.date3)}",
+                      "${snapshot.data.main3}",
+                      "${snapshot.data.icon3}",
+                    ),
                     cardd(
-                        "${snapshot.data.temp4}",
-                        "${snapshot.data.name4}",
-                        "${snapshot.data.main4}",
-                        "${snapshot.data.icon4}",
-                        "${snapshot.data.date4}"),
+                      "${snapshot.data.temp4}°C",
+                      "${snapshot.data.name4}",
+                      "${DateFormat("h:mma").format(snapshot.data.date4)}",
+                      "${snapshot.data.main4}",
+                      "${snapshot.data.icon4}",
+                    ),
                     cardd(
-                        "${snapshot.data.temp5}",
-                        "${snapshot.data.name5}",
-                        "${snapshot.data.main5}",
-                        "${snapshot.data.icon5}",
-                        "${snapshot.data.date5}"),
+                      "${snapshot.data.temp5}°C",
+                      "${snapshot.data.name5}",
+                      "${DateFormat("h:mma").format(snapshot.data.date5)}",
+                      "${snapshot.data.main5}",
+                      "${snapshot.data.icon5}",
+                    ),
                   ],
                 ),
               ),
@@ -82,7 +88,7 @@ class _ForectState extends State<Forect> {
   }
 }
 
-Widget cardd(tem, c, m, i, d) {
+Widget cardd(tem, c, d, m, i) {
   return Container(
     height: 130,
     width: 120,
@@ -96,11 +102,9 @@ Widget cardd(tem, c, m, i, d) {
           children: [
             Text(tem, style: TextStyle(color: Colors.white)),
             Text(c, style: TextStyle(color: Colors.white)),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Text(m, style: TextStyle(color: Colors.white)),
-              Image.network('http://openweathermap.org/img/w/${i}.png')
-            ]),
             Text(d, style: TextStyle(color: Colors.white)),
+            Text(m, style: TextStyle(color: Colors.white)),
+            Image.network('http://openweathermap.org/img/w/${i}.png')
           ],
         )),
   );
