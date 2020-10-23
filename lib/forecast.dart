@@ -1,29 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/api.dart';
 import 'package:weather_app/forecastmodel.dart';
-
-import 'package:weather_app/forecastmodel.dart';
+import 'button.dart';
 
 class Forect extends StatefulWidget {
+  final bool value;
+  Forect(this.value, {Key key}) : super(key: key);
+
   @override
   _ForectState createState() => _ForectState();
 }
 
 class _ForectState extends State<Forect> {
-  Future<Forecast> ac;
+  Future<Forecast> forecastData;
+  bool val = false;
 
   @override
   void initState() {
     super.initState();
-
-    ac = forc_data();
+    forecastData =
+        (val == widget.value ? forc_data("Karachi") : forc_search(abc));
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: FutureBuilder<Forecast>(
-        future: ac,
+        future: forecastData,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Container(

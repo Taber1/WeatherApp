@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/search.dart';
+import 'package:weather_app/weather.dart';
 
 class Buttonn extends StatefulWidget {
   @override
@@ -18,10 +18,18 @@ class _ButtonnState extends State<Buttonn> {
               child: TextField(controller: joinn),
             ),
             SizedBox(height: 30),
-            RaisedButton(onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Searchh()));
-            }),
+            RaisedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Currentweather(true)));
+                  setState(() {
+                    abc = joinn.text;
+                    joinn.clear();
+                  });
+                },
+                child: Text("Search")),
           ]),
         ),
       ),

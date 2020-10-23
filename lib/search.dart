@@ -59,7 +59,6 @@ class _SearchhState extends State<Searchh> {
           } else if (snapshot.hasError) {
             return Text("${snapshot.error}");
           }
-
           return Text(" ");
         },
       ),
