@@ -52,53 +52,31 @@ class _CurrentweatherState extends State<Currentweather> {
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        // colorFilter: new ColorFilter.mode(
-                        //     Colors.black.withOpacity(0.0), BlendMode.dstATop),
-                        image: AssetImage("assets/images/snow.jpg"),
+                        colorFilter: new ColorFilter.mode(
+                            Colors.black.withOpacity(0.8), BlendMode.dstATop),
+                        image: AssetImage("assets/images/5.jpg"),
                         fit: BoxFit.cover),
                   ),
 
                   // gradient: LinearGradient(
                   //     begin: Alignment.topCenter,
                   //     colors: [Colors.yellow[600], Colors.orange, Colors.red])),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "${snapshot.data.temp} °C",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 50,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        snapshot.data.name,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            snapshot.data.main,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Image.network(
-                              'http://openweathermap.org/img/w/${snapshot.data.icon}.png')
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      Forect(widget.value),
-                    ],
-                  )));
+                  child:
+                      Stack(alignment: Alignment(0.0, 0.65), children: <Widget>[
+                    Positioned(
+                        top: 100,
+                        left: 5,
+                        child: Container(
+                            height: 200,
+                            width: 200,
+                            child: maincard(
+                              "${snapshot.data.temp}°C",
+                              "${snapshot.data.name}",
+                              "${snapshot.data.main}",
+                              "${snapshot.data.icon}",
+                            ))),
+                    Forect(widget.value)
+                  ])));
           // }
         } else if (snapshot.hasError) {
           return Text("${snapshot.error}");
@@ -108,4 +86,58 @@ class _CurrentweatherState extends State<Currentweather> {
       },
     );
   }
+}
+
+Widget maincard(temp, name, main, icon) {
+  return Container(
+    child: Card(
+      color: Colors.transparent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.topCenter,
+            child: Image.network(
+              'http://openweathermap.org/img/w/$icon.png',
+              height: 100,
+              width: 120,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned(
+            top: 82,
+            left: 30,
+            child: Column(
+              //mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  name,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  temp,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  main,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    ),
+  );
 }

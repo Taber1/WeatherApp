@@ -9,8 +9,33 @@ class Buttonn extends StatefulWidget {
 }
 
 class _ButtonnState extends State<Buttonn> {
+  get key => null;
+
   @override
   Widget build(BuildContext context) {
+    var autoCompleteTextField = AutoCompleteTextField(
+      clearOnSubmit: false,
+      controller: joinn,
+      suggestions: suggestionList,
+      itemFilter: (item, query) {
+        return item.toLowerCase().startsWith(query.toLowerCase());
+      },
+      itemSorter: (a, b) {
+        return a.compareTo(b);
+      },
+      itemSubmitted: (item) {
+        joinn.text = item;
+      },
+      itemBuilder: (context, item) {
+        return Container(
+          padding: EdgeInsets.all(5),
+          child: Row(
+            children: [Text(item)],
+          ),
+        );
+      },
+      key: key,
+    );
     return MaterialApp(
       home: Scaffold(
         body: Padding(
@@ -22,30 +47,7 @@ class _ButtonnState extends State<Buttonn> {
                 Center(
                   child: Container(
                     width: 200,
-                    child: AutoCompleteTextField(
-                      clearOnSubmit: false,
-                      controller: joinn,
-                      suggestions: suggestionList,
-                      itemFilter: (item, query) {
-                        return item
-                            .toLowerCase()
-                            .startsWith(query.toLowerCase());
-                      },
-                      itemSorter: (a, b) {
-                        return a.compareTo(b);
-                      },
-                      itemSubmitted: (item) {
-                        joinn.text = item;
-                      },
-                      itemBuilder: (context, item) {
-                        return Container(
-                          padding: EdgeInsets.all(5),
-                          child: Row(
-                            children: [Text(item)],
-                          ),
-                        );
-                      },
-                    ),
+                    child: autoCompleteTextField,
                   ),
                 ),
                 SizedBox(height: 30),
