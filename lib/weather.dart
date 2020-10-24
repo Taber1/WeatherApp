@@ -26,92 +26,86 @@ class _CurrentweatherState extends State<Currentweather> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-          actions: [
-            IconButton(
-              icon: Icon(Icons.search),
-              color: Colors.black,
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Buttonn()));
-              },
-            )
-          ]),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            //   image: DecorationImage(
-            //       colorFilter: new ColorFilter.mode(
-            //           Colors.black.withOpacity(0.3), BlendMode.dstATop),
-            //       image: AssetImage("assets/images/background.jpg"),
-            //       fit: BoxFit.cover),
+    return FutureBuilder<Weather>(
+      future: weatherData,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          // if (snapshot.data.main == 'clear') {
+          return Scaffold(
+              extendBodyBehindAppBar: true,
+              appBar: AppBar(
+                  automaticallyImplyLeading: false,
+                  backgroundColor: Colors.transparent,
+                  elevation: 0.0,
+                  actions: [
+                    IconButton(
+                      icon: Icon(Icons.search),
+                      color: Colors.black,
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Buttonn()));
+                      },
+                    )
+                  ]),
+              body: Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        // colorFilter: new ColorFilter.mode(
+                        //     Colors.black.withOpacity(0.0), BlendMode.dstATop),
+                        image: AssetImage("assets/images/snow.jpg"),
+                        fit: BoxFit.cover),
+                  ),
 
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                colors: [Colors.yellow[600], Colors.orange, Colors.red])),
-        child: FutureBuilder<Weather>(
-          future: weatherData,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "${snapshot.data.temp} °C",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    snapshot.data.name,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Row(
+                  // gradient: LinearGradient(
+                  //     begin: Alignment.topCenter,
+                  //     colors: [Colors.yellow[600], Colors.orange, Colors.red])),
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        snapshot.data.main,
+                        "${snapshot.data.temp} °C",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 50,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        snapshot.data.name,
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 30,
                             fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(
-                        width: 5,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            snapshot.data.main,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Image.network(
+                              'http://openweathermap.org/img/w/${snapshot.data.icon}.png')
+                        ],
                       ),
-                      Image.network(
-                          'http://openweathermap.org/img/w/${snapshot.data.icon}.png')
+                      SizedBox(height: 20),
+                      Forect(widget.value),
                     ],
-                  ),
-                  // RaisedButton(
-                  //   onPressed: () {
-                  //     Navigator.push(context,
-                  //         MaterialPageRoute(builder: (context) => Buttonn()));
-                  //   },
-                  //   child: Text("Search By City"),
-                  // ),
-                  SizedBox(height: 20),
-                  Forect(widget.value),
-                ],
-              );
-            } else if (snapshot.hasError) {
-              return Text("${snapshot.error}");
-            }
+                  )));
+          // }
+        } else if (snapshot.hasError) {
+          return Text("${snapshot.error}");
+        }
 
-            return Text(" ");
-          },
-        ),
-      ),
+        return Text(" ");
+      },
     );
   }
 }
