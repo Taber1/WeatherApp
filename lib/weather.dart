@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:ui';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:weather_app/api.dart';
 import 'package:weather_app/button.dart';
@@ -17,6 +18,7 @@ class Currentweather extends StatefulWidget {
 class _CurrentweatherState extends State<Currentweather> {
   Future<Weather> weatherData;
   bool val = false;
+//  int randomNumber = Random().nextInt(6) + 1;
 
   @override
   void initState() {
@@ -54,7 +56,8 @@ class _CurrentweatherState extends State<Currentweather> {
                     image: DecorationImage(
                         colorFilter: new ColorFilter.mode(
                             Colors.black.withOpacity(0.8), BlendMode.dstATop),
-                        image: AssetImage("assets/images/5.jpg"),
+                        image: AssetImage(
+                            "assets/images/${Random().nextInt(6) + 1}.jpg"),
                         fit: BoxFit.cover),
                   ),
 
