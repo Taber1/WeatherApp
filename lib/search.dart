@@ -14,7 +14,7 @@ class Searchh extends StatefulWidget {
 class _SearchhState extends State<Searchh> {
   Future<Weather> searchdata() async {
     final searchresponse = await http.get(
-        'http://api.openweathermap.org/data/2.5/weather?q=$abc&appid=10530cd042fdda8d65051ca864fc86bf');
+        'https://api.openweathermap.org/data/2.5/weather?q=$abc&appid=10530cd042fdda8d65051ca864fc86bf');
 
     if (searchresponse.statusCode == 200) {
       return Weather.fromJson(jsonDecode(searchresponse.body));

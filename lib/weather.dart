@@ -103,7 +103,7 @@ Widget maincard(temp, name, main, icon) {
           Align(
             alignment: Alignment.topCenter,
             child: Image.network(
-              'http://openweathermap.org/img/w/$icon.png',
+              'https://openweathermap.org/img/w/$icon.png',
               height: 100,
               width: 120,
               fit: BoxFit.cover,

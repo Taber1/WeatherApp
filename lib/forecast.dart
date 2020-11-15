@@ -97,7 +97,7 @@ Widget cardd(tem, d, i) {
                 Align(
                   alignment: Alignment.topCenter,
                   child: Image.network(
-                    'http://openweathermap.org/img/w/${i}.png',
+                    'https://openweathermap.org/img/w/${i}.png',
                     height: 100,
                     width: 120,
                     fit: BoxFit.cover,
